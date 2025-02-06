@@ -56,7 +56,6 @@ class TaskModelController extends Controller
         if (!$taskdelete) {
             return redirect()->route('taskdisplay')->with('error', 'Task not found.');
         }
-        
         $taskdelete->delete();  
         return redirect()->route('taskdisplay')->with('success', 'Task deleted successfully.');
     }
