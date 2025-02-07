@@ -1,11 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+// use App\Http\Middleware\AgeMiddleware;
 use App\Http\Controllers\TaskModelController;
 
 Route::get('/', function () {
     return view('welcome');
 });
+// ->middleware('is_check');
+
+Route::get('/user-page', function () {
+    return view('user-page');
+})->middleware('is_check');
+
 Route::get('/taskdisplay', [TaskModelController::class, 'index'])->name('taskdisplay');
 Route::get('/create', [TaskModelController::class, 'create']);
 Route::post('/taskstore', [TaskModelController::class, 'store']);
